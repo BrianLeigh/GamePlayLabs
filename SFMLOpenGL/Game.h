@@ -8,6 +8,8 @@
 #include <GL/wglew.h>
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
+#include <fstream>
+#include <sstream>
 
 #include <Vector3.h>
 #include <Matrix3.h>

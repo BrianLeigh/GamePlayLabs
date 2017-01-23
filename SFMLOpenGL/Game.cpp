@@ -62,6 +62,24 @@ void Game::initialize()
 
 	glewInit();
 
+	std::ifstream vertexShaderFile;
+	std::ifstream fragmentShaderFile;
+
+	vertexShaderFile.open("./files/vertexShaderFile.txt");
+	fragmentShaderFile.open("./files/fragmentShaderFile.txt");
+
+	std::stringstream vertexStream;
+	std::stringstream fragmentStream;
+
+	vertexStream << vertexShaderFile.rdbuf();
+	fragmentStream << fragmentShaderFile.rdbuf();
+
+	std::string vString = vertexStream.str();
+	std::string fString = fragmentStream.str();
+
+	const char * vSource = vString.c_str();
+	const char * fSource = fString.c_str();
+
 	/* Vertices counter-clockwise winding */
 	vertex[0].coordinate[0] = -0.5f;
 	vertex[0].coordinate[1] = -0.5f;
@@ -176,14 +194,17 @@ void Game::initialize()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 	/* Vertex Shader which would normally be loaded from an external file */
-	const char* vs_src = "#version 400\n\r"
-		"in vec4 sv_position;"
-		"in vec4 sv_color;"
-		"out vec4 color;"
-		"void main() {"
-		"	color = sv_color;"
-		"	gl_Position = sv_position;"
-		"}"; //Vertex Shader Src
+	const char* vs_src = vSource;
+
+	//const char* vs_src = 
+	//	"#version 400\n\r"
+	//	"in vec4 sv_position;"
+	//	"in vec4 sv_color;"
+	//	"out vec4 color;"
+	//	"void main() {"
+	//	"	color = sv_color;"
+	//	"	gl_Position = sv_position;"
+	//	"}"; //Vertex Shader Src
 
 	DEBUG_MSG("Setting Up Vertex Shader");
 
@@ -204,7 +225,9 @@ void Game::initialize()
 	}
 
 	/* Fragment Shader which would normally be loaded from an external file */
-	const char* fs_src = "#version 400\n\r"
+	//const char* fs_src = fSource;
+	const char* fs_src = 
+		"#version 400\n\r"
 		"in vec4 color;"
 		"out vec4 fColor;"
 		"void main() {"
