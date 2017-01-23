@@ -65,8 +65,8 @@ void Game::initialize()
 	std::ifstream vertexShaderFile;
 	std::ifstream fragmentShaderFile;
 
-	vertexShaderFile.open("./files/vertexShaderFile.txt");
-	fragmentShaderFile.open("./files/fragmentShaderFile.txt");
+	vertexShaderFile.open("../files/vertexShaderFile.txt");
+	fragmentShaderFile.open("../files/fragmentShaderFile.txt");
 
 	std::stringstream vertexStream;
 	std::stringstream fragmentStream;
@@ -305,7 +305,7 @@ void Game::update()
 	}
 
 	//Change vertex data
-	vertex[0].coordinate[0] += -0.0001f;
+	/*vertex[0].coordinate[0] += -0.0001f;
 	vertex[0].coordinate[1] += -0.0000f;
 	vertex[0].coordinate[2] += -0.0000f;
 
@@ -335,7 +335,7 @@ void Game::update()
 
 	vertex[7].coordinate[0] += -0.0001f;
 	vertex[7].coordinate[1] += -0.0000f;
-	vertex[7].coordinate[2] += -0.0000f;
+	vertex[7].coordinate[2] += -0.0000f;*/
 
 #if (DEBUG >= 2)
 	DEBUG_MSG("Update up...");

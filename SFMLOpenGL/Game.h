@@ -32,6 +32,8 @@ private:
 	void render();
 	void unload();
 
+	ifstream vertexShaderFile;
+	ifstream fragmentShaderFile;
 	Clock clock;
 	Time elapsed;
 
