@@ -226,7 +226,7 @@ void Game::initialize()
 
 	/* Fragment Shader which would normally be loaded from an external file */
 	//const char* fs_src = fSource;
-	const char* fs_src = fSource
+	const char* fs_src = fSource;
 		/*"#version 400\n\r"
 		"in vec4 color;"
 		"out vec4 fColor;"
